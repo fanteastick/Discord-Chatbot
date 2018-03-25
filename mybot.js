@@ -72,7 +72,7 @@ client.on("message", (message) => {
   }
 
 
-  /* if (message.content.startsWith(config.prefix + "settoken ")) {
+  if (message.content.startsWith(config.prefix + "settoken ")) {
   let newtoken = message.content.split(" ").slice(1,2)[0];
   let newarray = message.content.split(" ");
   let text = "";
@@ -83,16 +83,16 @@ message.channel.send("```" + text + "```");
 //let newstring = message.content.split(" ");
 //let newkey = newstring.split(" ").slice(1,2)[0];
 message.channel.send("newtoken is " + newtoken + " and newkey is ");// + newkey)
-}*/
+}
 
 
 if (message.content.startsWith(config.prefix + "settoken ")) {
   let newtoken = message.content.split(" ").slice(1,2)[0];
   let newarray = message.content.split(" ");
-  if (newarray.length != 3) {
+  /*if (newarray.length != 3) {
     message.channel.send("There was an incorrect number of arguments, please only have 2 arguments for <key> and <token>");
     return;
-  }
+  }*/
   let text = "";
   for (i = 1; i < newarray.length; i++) {
     text += newarray[i] + " ";
@@ -105,7 +105,7 @@ if (message.content.startsWith(config.prefix + "settoken ")) {
 }*/
 //let newstring = message.content.split(" ");
 //let newkey = newstring.split(" ").slice(1,2)[0];
-message.channel.send("newtoken is " + newarray[1] + " and newkey is " + newarray[2]);
+message.channel.send("newtoken is " + newarray[1] + " and newkey is " + text);
 client.myTable.set(newarray[1], newarray[2]);// + newkey)
 tags.push(newarray[1]);
 }
@@ -128,11 +128,25 @@ if (message.content.startsWith(config.prefix + "avail")) {
 
 
 //************************* EMOJI TIME AGAIN WHOOOOOOOT ****************************************
-if(message.content.startsWith("ayy")) {
-  const ayy = client.emojis.find("name", "ayyylmao");
-  (`${ayy} LMAO`);
+if(message.content.startsWith(config.prefix + "ayy")) {
+  //const ayy = client.emojis.find("name", "ayyylmao");
+  const ayy = client.emojis.get("427384784658890752");
+  message.channel.send(`${ayy} LMAO`);
+  message.channel.send("Does it work or wha");
+  message.react(`${ayy}`);
 }
 
+if(message.content.startsWith(config.prefix + "emote ")) {
+  let emotelister = message.content.split(" ");
+  let emotee = emotelister[1];
+  let emoe = client.emojis.find("name", emotee);
+  message.channel.send("" + emoe);
+}
+
+if (message.content.startsWith(config.prefix + "allemotes")){
+  const emojiList = message.guild.emojis.map(e=>e.toString()).join(" ");
+  message.channel.send(emojiList);
+}
 
 });
 client.login(config.token);
