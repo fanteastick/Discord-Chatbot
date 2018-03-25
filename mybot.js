@@ -39,6 +39,7 @@ client.on("guildCreate", guild => {
 
 
 client.on("message", (message) => {
+  //basic starter things ******************************************************************************************
   if (!message.content.startsWith(config.prefix)|| message.author.bot) return;
   if (message.content.startsWith(config.prefix + "ping")) {
     message.channel.send("pong!");
@@ -47,6 +48,8 @@ client.on("message", (message) => {
     message.channel.send("bar!");
   }
 
+
+// Change the prefix!! ********************************************************************************
   if(message.content.startsWith(config.prefix + "prefix ")) {
     // Gets the prefix from the command (eg. "!prefix +" it will take the "+" from it)
     let newPrefix = message.content.split(" ").slice(1, 2)[0];
@@ -55,24 +58,22 @@ client.on("message", (message) => {
 
     // Now we have to save the file.
     fs.writeFile("./config.json", JSON.stringify(config), (err) => console.error);
+    // check for no prefix case
   } else if (message.content.startsWith(config.prefix + "prefix")) {
     message.channel.send("Please put in a normal prefix!");
-  }
-  if (message.content.startsWith(config.prefix + "asdf")) {
-    message.channel.send("" + config.prefix);
   }
 
 
   ////****************************** MESSING WITH KEYS ******************************
-  if (message.content.startsWith(config.prefix + "getkey ")) {
+  /*if (message.content.startsWith(config.prefix + "getkey ")) {
     let newtoken = message.content.split(" ").slice(1, 2)[0];
     message.channel.send("" + newtoken); // outputs "bar")
   } else if (message.content.startsWith(config.prefix + "getkey")) {
     message.channel.send("That's not a valid key!! To get a key, type out ```" + config.prefix + "getkey <insert key here>```");
-  }
+  }*/
 
-
-  if (message.content.startsWith(config.prefix + "settoken ")) {
+// SET TOKEN METHOD ********************************************************************************
+  /*if (message.content.startsWith(config.prefix + "settoken ")) {
   let newtoken = message.content.split(" ").slice(1,2)[0];
   let newarray = message.content.split(" ");
   let text = "";
@@ -83,9 +84,9 @@ message.channel.send("```" + text + "```");
 //let newstring = message.content.split(" ");
 //let newkey = newstring.split(" ").slice(1,2)[0];
 message.channel.send("newtoken is " + newtoken + " and newkey is ");// + newkey)
-}
+}*/
 
-
+// SET TOKEN ********************************************************************************
 if (message.content.startsWith(config.prefix + "settoken ")) {
   let newtoken = message.content.split(" ").slice(1,2)[0];
   let newarray = message.content.split(" ");
@@ -93,8 +94,8 @@ if (message.content.startsWith(config.prefix + "settoken ")) {
     message.channel.send("There was an incorrect number of arguments, please only have 2 arguments for <key> and <token>");
     return;
   }*/
-  let text = "";
-  for (i = 1; i < newarray.length; i++) {
+  let text = ""; // in array: 0 is +settoken
+  for (i = 2; i < newarray.length; i++) {
     text += newarray[i] + " ";
   }
   message.channel.send("```" + text + "```");
@@ -105,11 +106,14 @@ if (message.content.startsWith(config.prefix + "settoken ")) {
 }*/
 //let newstring = message.content.split(" ");
 //let newkey = newstring.split(" ").slice(1,2)[0];
+message.channel.send("command: " + newarray[0]);
 message.channel.send("newtoken is " + newarray[1] + " and newkey is " + text);
-client.myTable.set(newarray[1], newarray[2]);// + newkey)
+client.myTable.set(newarray[1], text);// + newkey)
 tags.push(newarray[1]);
 }
 
+
+//GETTING A TOKEN ********************************************************************************
 if (message.content.startsWith(config.prefix + "gettoken ")) {
   let ttoken = message.content.split(" ").slice(1,2)[0];
   /*if (!myTable.has(ttoken)) {
@@ -118,6 +122,7 @@ if (message.content.startsWith(config.prefix + "gettoken ")) {
 message.channel.send(client.myTable.get(ttoken));//}
 }
 
+// AVAILABLE TAGS********************************************************************************
 if (message.content.startsWith(config.prefix + "avail")) {
   let text = "";
   for (j =0; j <tags.length; j++) {
