@@ -7,7 +7,7 @@ const EnmapLevel = require('enmap-level');
 const tableSource = new EnmapLevel({name: "myTable"});
 const myTable = new Enmap({provider: tableSource});
 client.myTable = new Enmap({name: "myTable"});
-client.settings = new Enmap({name: 'settings', persistent: true});
+//client.settings = new Enmap({name: 'settings', persistent: true});
 var tags = [];
 /*const defaultSettings = {
   prefix: "!",
@@ -155,5 +155,24 @@ if (message.content.startsWith(config.prefix + "allemotes")){
   message.channel.send(emojiList);
 }
 
+// GET THE PREFIX IF U DUN KNO
+if (message.content.startsWith("@b&#9905")) {
+  mention = commands.bot.when_mentioned(self.bot, message)
+  message.channel.send("Hi user! My prefix is " + config.prefix);
+}
+
+// GET SOME HELP WOW ********************************************************************************
+if (message.content.startsWith(config.prefix + "help")) {
+  let text = "";
+  text += "Welcome to help \n";
+  text += "TODO: Embed help menu. Add bot to LAH official discord. Get rich presence. At the bot to get the prefix.";
+  text += "\nTwo functionalities: Emojis and Store Tags \n"
+  text += "*****Commands(num params):***** \nsettoken(2)\ngettoken(1)\nallemotes(0) \nemote(1) \nhelp(0) \nayy(0) "
+  message.channel.send("**This is the help menu**");
+  message.channel.send({embed: {
+  color: 3447003,
+  description: text
+}});
+}
 });
 client.login(config.token);
