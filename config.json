@@ -1,1 +1,5 @@
-{"token":"NDI3Mjk3NDMzNjY4ODEyODIy.DZifSQ.JbNYAGU067fENRmTAitAE43Qgzk","prefix":"+"}
+{"token":"NDI3Mjk3NDMzNjY4ODEyODIy.DZifSQ.JbNYAGU067fENRmTAitAE43Qgzk","prefix":"^",
+  "help_string":
+      "Welcome to help \n \nTODO: Embed help menu. Add bot to LAH official discord. Get rich presence. \nTwo functionalities: Emojis and Store Tags \n***Commands(num params):*** \nsettoken(2)\ngettoken(1)\nallemotes(0) \nemote(1) \nhelp(0) \nayy(0)"
+
+}

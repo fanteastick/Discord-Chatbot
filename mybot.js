@@ -39,6 +39,20 @@ client.on("guildCreate", guild => {
 
 
 client.on("message", (message) => {
+  // GET THE PREFIX IF U DUN KNO
+  if (message.content.startsWith("<@427297433668812822> help") || message.content.startsWith(config.prefix + "help")) {
+    message.channel.send("Hi user! My prefix is " + config.prefix);
+    let text = config.help_string;
+    /*text += ;
+    text += "TODO: Embed help menu. Add bot to LAH official discord. Get rich presence. At the bot to get the prefix.";
+    text += "\nTwo functionalities: Emojis and Store Tags \n"
+    text += "***Commands(num params):*** \nsettoken(2)\ngettoken(1)\nallemotes(0) \nemote(1) \nhelp(0) \nayy(0) "*/
+    message.channel.send("**This is the help menu**");
+    message.channel.send({embed: {
+    color: 3447003,
+    description: text
+  }});
+  }
   //basic starter things ******************************************************************************************
   if (!message.content.startsWith(config.prefix)|| message.author.bot) return;
   if (message.content.startsWith(config.prefix + "ping")) {
@@ -155,24 +169,10 @@ if (message.content.startsWith(config.prefix + "allemotes")){
   message.channel.send(emojiList);
 }
 
-// GET THE PREFIX IF U DUN KNO
-if (message.content.startsWith("@b&#9905")) {
-  mention = commands.bot.when_mentioned(self.bot, message)
-  message.channel.send("Hi user! My prefix is " + config.prefix);
-}
 
-// GET SOME HELP WOW ********************************************************************************
-if (message.content.startsWith(config.prefix + "help")) {
-  let text = "";
-  text += "Welcome to help \n";
-  text += "TODO: Embed help menu. Add bot to LAH official discord. Get rich presence. At the bot to get the prefix.";
-  text += "\nTwo functionalities: Emojis and Store Tags \n"
-  text += "*****Commands(num params):***** \nsettoken(2)\ngettoken(1)\nallemotes(0) \nemote(1) \nhelp(0) \nayy(0) "
-  message.channel.send("**This is the help menu**");
-  message.channel.send({embed: {
-  color: 3447003,
-  description: text
-}});
-}
+
+
+
+
 });
 client.login(config.token);
