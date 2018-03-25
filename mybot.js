@@ -7,6 +7,13 @@ const EnmapLevel = require('enmap-level');
 const tableSource = new EnmapLevel({name: "myTable"});
 const myTable = new Enmap({provider: tableSource});
 client.myTable = new Enmap({name: "myTable"});
+
+const responseObject = {
+  "ayy": "Ayy, lmao!",
+  "wat": "Say what?",
+  "lol": "roflmaotntpmp"
+};
+
 //client.settings = new Enmap({name: 'settings', persistent: true});
 var tags = [];
 /*const defaultSettings = {
@@ -62,6 +69,10 @@ client.on("message", (message) => {
     message.channel.send("bar!");
   }
 
+// resonse object
+  if(responseObject[message.content]) {
+      message.channel.send(responseObject[message.content]);
+    }
 
 // Change the prefix!! ********************************************************************************
   if(message.content.startsWith(config.prefix + "prefix ")) {
