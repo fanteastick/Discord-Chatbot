@@ -49,7 +49,19 @@ client.on("message", (message) => {
   // GET THE PREFIX IF U DUN KNO
   if (message.content.startsWith("<@427297433668812822> help") || message.content.startsWith(config.prefix + "help")) {
     message.channel.send("Hi user! My prefix is " + config.prefix);
-    let text = config.help_string;
+    let text = ""
+    + "Welcome to help \n \nTODO: Get rich presence. \nTwo functionalities: Emojis and Store Tags \n***Commands(num params):***" + "\n" + "\n"
+    +"`settoken(2)` WHEREIN the first word is the tag \"token\", the other words are the \"key\"" + "\n"
+    +"`gettoken(1)` WHEREIN you input the token name and the bot will return the key" + "\n"
+    +"`allemotes(0)` WHEREIN every single emote on the current server is listed" + "\n"
+    +"`emote(1)` WHEREIN the emote name you type out is searched. if found, added as reaction" + "\n"
+    +"`help(0)` WHEREIN you get a help menu" + "\n"
+    +"`ayy(0)` WHEREIN it returns the best emote response amirite" + "\n"
+    +"`prefix(1)` WHEREIN the next character turns into the bot's prefix"
+    +"`avail(0)` WHEREIN all available tags that you've made in the session are printed";
+
+    //text += helps.help_string;
+    //let text = helps.help_string;// + "\n" + helps.settoken + "\n" + helps.gettoken + "\n" + helps.allemotes + "\n" + helps.emote + "\n" + helps.help + "\n" + helps.ayy  + "\n";
     /*text += ;
     text += "TODO: Embed help menu. Add bot to LAH official discord. Get rich presence. At the bot to get the prefix.";
     text += "\nTwo functionalities: Emojis and Store Tags \n"
@@ -57,7 +69,7 @@ client.on("message", (message) => {
     message.channel.send("**This is the help menu**");
     message.channel.send({embed: {
     color: 3447003,
-    description: text
+    description: text + "hello"
   }});
   }
   //basic starter things ******************************************************************************************

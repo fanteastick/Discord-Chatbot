@@ -1,8 +1,9 @@
 {"help_string":
-    "Welcome to help \n \nTODO: Embed help menu. Add bot to LAH official discord. Get rich presence. \nTwo functionalities: Emojis and Store Tags \n***Commands(num params):***",
+    "Welcome to help \n \nTODO: Embed help menu. Get rich presence. \nTwo functionalities: Emojis and Store Tags \n***Commands(num params):***",
     "settoken": "settoken(2) WHEREIN the first word is the tag \"token\", the other words are the \"key\"",
     "gettoken": "gettoken(1) WHEREIN you input the token name and the bot will return the key",
     "allemotes": "allemotes(0) WHEREIN every single emote on the current server is listed",
     "emote": "emote(1) WHEREIN the emote name you type out is searched. if found, added as reaction",
     "help": "help(0) WHEREIN you get a help menu",
-    "ayy": "ayy(0) WHEREIN it returns the best emote response amirite"}
+    "ayy": "ayy(0) WHEREIN it returns the best emote response amirite",
+    "avail": "avail(0) WHEREIN all available tags that you've made in the session are printed"}
