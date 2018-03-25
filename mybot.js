@@ -133,7 +133,8 @@ if(message.content.startsWith(config.prefix + "ayy")) {
   const ayy = client.emojis.get("427384784658890752");
   message.channel.send(`${ayy} LMAO`);
   message.channel.send("Does it work or wha");
-  message.react(`${ayy}`);
+  //message.react(client.emojis.get("427384784658890752"));
+  message.react(ayy);
 }
 
 if(message.content.startsWith(config.prefix + "emote ")) {
@@ -141,6 +142,7 @@ if(message.content.startsWith(config.prefix + "emote ")) {
   let emotee = emotelister[1];
   let emoe = client.emojis.find("name", emotee);
   message.channel.send("" + emoe);
+  message.react(emoe);
 }
 
 if (message.content.startsWith(config.prefix + "allemotes")){
