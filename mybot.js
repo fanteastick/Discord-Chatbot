@@ -9,7 +9,7 @@ const myTable = new Enmap({provider: tableSource});
 client.myTable = new Enmap({name: "myTable"});
 
 const responseObject = {
-  "ayy": "Ayy, lmao!",
+  "ayy": "Ayy lmao!",
   "wat": "Say what?",
   "lol": "roflmaotntpmp"
 };
@@ -72,6 +72,10 @@ client.on("message", (message) => {
     description: text + "hello"
   }});
   }
+
+  if(responseObject[message.content]) {
+      message.channel.send(responseObject[message.content]);
+    }
   //basic starter things ******************************************************************************************
   if (!message.content.startsWith(config.prefix)|| message.author.bot) return;
   if (message.content.startsWith(config.prefix + "ping")) {
@@ -82,9 +86,7 @@ client.on("message", (message) => {
   }
 
 // resonse object
-  if(responseObject[message.content]) {
-      message.channel.send(responseObject[message.content]);
-    }
+
 
 // Change the prefix!! ********************************************************************************
   if(message.content.startsWith(config.prefix + "prefix ")) {
